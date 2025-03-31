@@ -1,94 +1,88 @@
-# Desafio Super Trunfo - Países - Cadastro das Cartas - Atualizado: 21/02
+# Desafio Lógica Super Trunfo - BCLELIS
 
-Bem-vindo ao desafio "Super Trunfo - Países"! No jogo Super Trunfo, os jogadores comparam os atributos das cartas para determinar a mais forte. O tema deste Super Trunfo é "Países", onde você comparará os atributos das cidades.
+Este projeto é a versão final do jogo Super Trunfo, onde foi implementado uma lógica avançada de comparação entre duas cartas. O programa permite o cadastro de cartas com atributos como estado, código, nome do país, população, área, PIB, pontos turísticos, além de calcular a densidade demográfica e o PIB per capita. Em seguida, o usuário pode escolher dois atributos diferentes para comparação, utilizando menus interativos, switch e estruturas de decisão (if-else, operador ternário) para determinar o vencedor de cada atributo e, por fim, a carta vencedora da rodada com base na soma dos valores dos atributos escolhidos.
 
-A empresa MateCheck contratou você para desenvolver a parte inicial do jogo, que consiste no cadastro das cartas.
+## Funcionalidades
 
-O desafio está dividido em três níveis: Novato, Aventureiro e Mestre, com cada nível adicionando mais complexidade ao anterior.  **Você deve escolher qual desafio quer realizar.**
+- **Cadastro de Cartas:**  
+  Permite o cadastro de duas cartas com os seguintes atributos:
+  - Estado (char)
+  - Código da carta (int, de 01 a 04)
+  - Nome do país (string)
+  - População (int)
+  - Área (float, em km²)
+  - PIB (float, em bilhões de reais)
+  - Número de pontos turísticos (int)
+  - **Cálculo de Atributos Derivados:**
+    - Densidade Demográfica: População / Área
+    - PIB per Capita: PIB / População
 
-🚨 **Atenção:** O nível Novato do desafio é focado apenas no cadastro das cartas, utilizando as funções `scanf` para ler os dados e `printf` para exibi-los.
+- **Menu Interativo para Comparação:**  
+  O sistema apresenta um menu que permite ao jogador escolher **dois atributos diferentes** para comparar as cartas. As opções disponíveis são:
+  1. População
+  2. Área
+  3. PIB
+  4. Pontos Turísticos
+  5. Densidade Demográfica (vence o menor valor)
+  6. PIB per Capita  
+  O menu é dinâmico e impede que o mesmo atributo seja selecionado duas vezes.
 
-## 🎮 Nível Novato: Cadastro Básico
+- **Comparação dos Atributos e Resultado Final:**  
+  - Para cada atributo escolhido, o programa compara os valores das duas cartas.
+  - Para todos os atributos, vence a carta com o maior valor; exceto na comparação da Densidade Demográfica, onde vence a carta com o menor valor.
+  - Utiliza estruturas `switch` e `if-else`, com operador ternário para determinar rapidamente o vencedor.
+  - A soma dos valores dos dois atributos é calculada para cada carta e a carta com a maior soma vence a rodada. Em caso de empate, exibe "Empate!".
 
-No nível Novato, você iniciará criando o sistema básico do jogo Super Trunfo com o tema "Países". As cartas serão divididas por estados, cada um com quatro cidades.  Imagine um país dividido em oito estados (A a H), e cada estado com quatro cidades (1 a 4).  A combinação forma o código da carta (ex: A01, B02).
+## Requisitos
 
-🚩 **Objetivo:** Criar um programa em C que cadastra **duas** cartas com os seguintes atributos:
+- **Linguagem:** C  
+- **Compilador:** Qualquer compilador compatível com C (por exemplo, gcc).
 
-*   População (`int`)
-*   Área (`float`)
-*   PIB (`float`)
-*   Número de pontos turísticos (`int`)
+## Estrutura do Projeto
 
-⚙️ **Funcionalidades do Sistema:**
+- **Arquivo principal:** `logicaSuperTrunfo.c`  
+- **Nome do repositório:** `desafio-l-gica-super-trunfo-bclelis`
 
-*   O sistema permitirá ao usuário cadastrar os dados de **duas** cartas manualmente via terminal.
-*   Após o cadastro, o sistema exibirá os dados de cada cidade de forma organizada.
+## Como Compilar
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+Abra o terminal na pasta do projeto e execute o seguinte comando usando gcc:
 
-*   O usuário insere os dados de cada carta interativamente via `scanf`.
-*   O programa exibe os dados cadastrados usando `printf`, com cada atributo em uma nova linha.
+gcc -o super_trunfo logicaSuperTrunfo.c
 
-**Simplificações para o Nível Novato:**
+Este comando compila o código presente em logicaSuperTrunfo.c e gera um executável chamado super_trunfo.
 
-*   Cadastre apenas **duas** cartas.
-*   Concentre-se na leitura, armazenamento e exibição. Não implemente comparações ou outros recursos.
-*   **Não use** laços (`for`, `while`) ou condicionais (`if`, `else`).
+## Como Executar
 
+No terminal, execute:
 
-## 🛡️ Nível Aventureiro: Cálculo de Atributos
+./super_trunfo
 
-No nível Aventureiro, você expandirá o sistema para incluir o cálculo de dois novos atributos: Densidade Populacional e PIB per Capita.
+Siga as instruções exibidas para cadastrar as cartas e escolher os atributos de comparação.
 
-🆕 **Diferença em relação ao Nível Novato:**
+## Exemplo de Uso
 
-*   **Novos Atributos:**
-    *   Densidade Populacional: População / Área (`float`)
-    *   PIB per Capita: PIB / População (`float`)
+1. **Cadastro das Cartas:**  
+   O programa solicitará os dados para duas cartas, por exemplo:
+   - Estado: A
+   - Código: 01
+   - Nome do país: Brasil
+   - População: 213000000
+   - Área: 8516000
+   - PIB: 7000
+   - Pontos Turísticos: 150
 
-⚙️ **Funcionalidades do Sistema:**
+2. **Exibição dos Atributos Calculados:**  
+   O sistema exibirá a densidade demográfica e o PIB per capita calculados para cada carta.
 
-*   O sistema calculará automaticamente a Densidade Populacional e o PIB per Capita.
-*   Os novos atributos serão exibidos junto com os demais.
+3. **Menu de Comparação:**  
+   Você poderá escolher dois atributos para comparar (por exemplo, "População" e "Densidade Demográfica").  
+   - No primeiro atributo, o programa compara e exibe o vencedor (maior valor vence, exceto para densidade, onde o menor vence).
+   - No segundo atributo, o mesmo processo é realizado.
 
-📥 **Entrada** e 📤 **Saída de Dados:**
+4. **Resultado Final:**  
+   O programa soma os valores dos dois atributos para cada carta e exibe qual carta venceu a rodada ou se houve empate.
 
-*   Mesma entrada do nível Novato.
-*   A saída exibirá também os atributos calculados.
+## Considerações Finais
 
-**Simplificações para o Nível Intermediário:**
-
-*   Continue cadastrando apenas **duas** cartas.
-*   Continue **sem usar** laços (`for`, `while`) ou condicionais (`if`, `else`).
-
-
-
-## 🏆 Nível Mestre: Comparação e Super Poder
-
-No nível Mestre, você implementará a comparação entre duas cartas e o cálculo do "Super Poder".
-
-🆕 **Diferença em relação ao Nível Aventureiro:**
-
-*   **Comparação de Cartas:** O usuário poderá comparar as duas cartas.
-*   **Super Poder:** Soma de todos os atributos (inclusive os calculados), com a densidade populacional *invertida* antes da soma (1/densidade).  Tipo: `float`.
-
-⚙️ **Funcionalidades do Sistema:**
-
-*   Comparação atributo a atributo, mostrando qual carta venceu (1 se a Carta 1 vence, 0 se a Carta 2 vence).
-*   Para Densidade Populacional, vence a carta com o *menor* valor.
-*   Para os demais atributos (e o Super Poder), vence a carta com o *maior* valor.
-
-📥 **Entrada** e 📤 **Saída de Dados:**
-
-*   Mesma entrada dos níveis anteriores, mas a População agora é `unsigned long int`.
-*   A saída mostrará o resultado da comparação para cada atributo e o Super Poder.
-
-**Observação:**  Preste atenção à conversão de tipos ao calcular o Super Poder!
-
-
-## 🏁 Conclusão
-
-Ao concluir qualquer um dos níveis, você terá dado um passo importante no desenvolvimento do Super Trunfo - Países. Boa sorte e divirta-se programando!
-
-Equipe de Ensino - MateCheck
-content_copy
+- O código foi desenvolvido com foco em clareza e usabilidade, utilizando menus interativos e validação básica para evitar escolhas duplicadas.
+- Este projeto é ideal para praticar estruturas de decisão, switch e o operador ternário em C.
